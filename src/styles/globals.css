@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-aura-white text-aura-black font-body;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: rgba(198, 161, 110, 0.25);
+    color: #111111;
+  }
+
+  ::-webkit-scrollbar {
+    width: 2px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #F8F6F2;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #C6A16E;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  /* Typography */
+  .display-hero {
+    @apply font-display font-light tracking-tight leading-none;
+  }
+
+  .display-section {
+    @apply font-display font-light leading-tight;
+  }
+
+  .label-luxury {
+    @apply font-body font-light text-xs tracking-ultra uppercase text-aura-gold;
+  }
+
+  .label-section {
+    @apply font-body font-light text-xs tracking-ultra uppercase;
+  }
+
+  /* Layout */
+  .container-aura {
+    @apply max-w-screen-xl mx-auto px-5 md:px-10 xl:px-16;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-28 xl:py-36;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-3
+           px-8 py-4
+           bg-aura-black text-aura-white
+           font-body font-light text-xs tracking-ultra uppercase
+           transition-all duration-600 ease-luxury
+           hover:bg-aura-gold hover:text-aura-white;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-3
+           px-8 py-4
+           border border-aura-black text-aura-black
+           font-body font-light text-xs tracking-ultra uppercase
+           transition-all duration-600 ease-luxury
+           hover:bg-aura-black hover:text-aura-white;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2
+           text-aura-black
+           font-body font-light text-xs tracking-ultra uppercase
+           transition-all duration-400 ease-luxury
+           hover:text-aura-gold;
+  }
+
+  .btn-whatsapp {
+    @apply inline-flex items-center justify-center gap-3
+           px-8 py-4
+           bg-aura-gold text-aura-white
+           font-body font-light text-xs tracking-ultra uppercase
+           transition-all duration-600 ease-luxury
+           hover:bg-aura-bronze;
+  }
+
+  /* Dividers */
+  .divider-gold {
+    @apply w-10 h-px bg-aura-gold;
+  }
+
+  .divider-dark {
+    @apply w-10 h-px bg-aura-black;
+  }
+
+  /* Image overlays */
+  .overlay-noir {
+    @apply absolute inset-0 bg-gradient-to-t from-aura-noir/85 via-aura-noir/20 to-transparent;
+  }
+
+  .overlay-subtle {
+    @apply absolute inset-0 bg-aura-noir/15;
+  }
+
+  /* Cards */
+  .card-product {
+    @apply relative overflow-hidden cursor-pointer;
+  }
+
+  .card-product img {
+    @apply w-full h-full object-cover transition-transform duration-1200 ease-silk;
+  }
+
+  /* Nav */
+  .nav-link {
+    @apply font-body font-light text-[0.65rem] tracking-ultra uppercase transition-colors duration-300 ease-luxury;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .writing-vertical {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+
+  .blend-overlay {
+    mix-blend-mode: overlay;
+  }
+
+  .blend-multiply {
+    mix-blend-mode: multiply;
+  }
+
+  /* Safe area para iPhone */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .pt-safe {
+    padding-top: env(safe-area-inset-top);
+  }
+}
